@@ -10,14 +10,14 @@ import {
 
 import womanProgrammer from "../../public/womanProgrammer.svg";
 
-export default function Home() {
+export default function About() {
   return (
       <Box
         component="main"
         sx={{
           bgcolor: "background.default",
           minHeight: "100vh",
-          py: { xs: 6, md: 8 },
+          py: { xs: 4, md: 8 },
         }}
       >
         <Container maxWidth="lg">

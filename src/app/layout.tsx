@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "Sejal Agarwal – Software Engineer",
+  title: "Sejal Agarwal - Software Engineer",
   description: "Personal site of Sejal Agarwal",
 };
 
@@ -25,8 +25,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           antialiased
         `}
       >
-        <Header />
         <Providers>
+        <Header />
           {children}
         </Providers>
       </body>
