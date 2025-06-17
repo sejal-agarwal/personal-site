@@ -21,11 +21,8 @@ const NAV_ITEMS = [
 
 export default function Header() {
   const [current, setCurrent] = React.useState(0);
-
-  // Utility: find which section is currently at/just below the header
   const syncTabWithScroll = React.useCallback(() => {
-    // how many pixels from top to consider "active"
-    const OFFSET = 80;
+    const OFFSET = 150;
     const scrollY = window.scrollY + OFFSET;
     let newIndex = 0;
 
