@@ -42,7 +42,7 @@ export default function Header() {
             component={NextLink}
             href="#about"
             sx={{
-              display: { xs: "none", md: "block" },
+              display: { xs: "none", sm: "block" },
               textDecoration: "none",
               color: "text.primary",
               fontFamily: "Poppins",
@@ -55,7 +55,7 @@ export default function Header() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", sm: "flex" },
               justifyContent: "flex-end",
               mr: 4,
             }}
@@ -89,13 +89,20 @@ export default function Header() {
           </Box>
 
           {/* ——— Mobile tabs ——— */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", sm: "none" },
+              width: "100%",
+            }}
+          >
             <Tabs
               value={current}
               onChange={handleChange}
               variant="standard"
               centered
               sx={{
+                width: "100%",
                 "& .MuiTabs-flexContainer": {
                   justifyContent: "center",
                   px: { xs: 2, sm: 4 },
@@ -105,13 +112,13 @@ export default function Header() {
                   textTransform: "none",
                   fontFamily: "Poppins",
                   fontWeight: 500,
-                  color: (theme) => theme.palette.text.primary,
+                  color: (t) => t.palette.text.primary,
                   "&.Mui-selected": {
-                    color: (theme) => theme.palette.primary.main,
+                    color: (t) => t.palette.primary.main,
                   },
                 },
                 "& .MuiTabs-indicator": {
-                  backgroundColor: (theme) => theme.palette.primary.main,
+                  backgroundColor: (t) => t.palette.primary.main,
                 },
               }}
             >
