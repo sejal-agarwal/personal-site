@@ -22,14 +22,43 @@ const NAV_ITEMS = [
 export default function Header() {
   const [current, setCurrent] = React.useState(0);
 
+  // Utility: find which section is currently at/just below the header
+  const syncTabWithScroll = React.useCallback(() => {
+    // how many pixels from top to consider "active"
+    const OFFSET = 80;
+    const scrollY = window.scrollY + OFFSET;
+    let newIndex = 0;
+
+    for (let i = 0; i < NAV_ITEMS.length; i++) {
+      const el = document.querySelector(NAV_ITEMS[i].href);
+      if (el) {
+        const top = (el as HTMLElement).offsetTop;
+        if (scrollY >= top) {
+          newIndex = i;
+        }
+      }
+    }
+
+    if (newIndex !== current) {
+      setCurrent(newIndex);
+    }
+  }, [current]);
+
+  React.useEffect(() => {
+    // on mount and on scroll, sync the tab index
+    window.addEventListener("scroll", syncTabWithScroll, { passive: true });
+    // also run once in case we start mid-page
+    syncTabWithScroll();
+    return () => window.removeEventListener("scroll", syncTabWithScroll);
+  }, [syncTabWithScroll]);
+
   const handleChange = (evt: React.SyntheticEvent, value: number) => {
     setCurrent(value);
-    if (NAV_ITEMS[value].href === "#about") {
+    const href = NAV_ITEMS[value].href;
+    if (href === "#about") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      document
-        .querySelector(NAV_ITEMS[value].href)!
-        .scrollIntoView({ behavior: "smooth" });
+      document.querySelector(href)!.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -103,22 +132,16 @@ export default function Header() {
               centered
               sx={{
                 width: "100%",
-                "& .MuiTabs-flexContainer": {
-                  justifyContent: "center",
-                  px: { xs: 2, sm: 4 },
+                "& .MuiTabs-indicator": {
+                  backgroundColor: (t) => t.palette.primary.main,
                 },
                 "& .MuiTab-root": {
-                  minWidth: 72,
                   textTransform: "none",
                   fontFamily: "Poppins",
                   fontWeight: 500,
-                  color: (t) => t.palette.text.primary,
                   "&.Mui-selected": {
                     color: (t) => t.palette.primary.main,
                   },
-                },
-                "& .MuiTabs-indicator": {
-                  backgroundColor: (t) => t.palette.primary.main,
                 },
               }}
             >

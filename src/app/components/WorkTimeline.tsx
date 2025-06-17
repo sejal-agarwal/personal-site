@@ -30,35 +30,42 @@ const EXPERIENCES: Experience[] = [
   {
     title: "Software Engineer Co-op",
     company: "Outschool",
-    dateRange: "Sept 2024 – Dec 2024",
+    dateRange: "Sept 2024 - Dec 2024",
+    description:
+      "Led A/B tests and built analytics dashboards to drive a 20% lift in sign-ups.",
+  },
+  {
+    title: "Software Engineer Co-op",
+    company: "Outschool",
+    dateRange: "Jan 2024 - Apr 2024",
     description:
       "Led A/B tests and built analytics dashboards to drive a 20% lift in sign-ups.",
   },
   {
     title: "Software Engineer Co-op",
     company: "Open Ocean Robotics",
-    dateRange: "May 2023 – Aug 2023",
+    dateRange: "May 2023 - Aug 2023",
     description:
       "Migrated 60k LOC from JS to TS, boosted test coverage to 85% and shipped a live-stream carousel feature.",
   },
   {
     title: "Software Engineer Intern",
     company: "Respondent",
-    dateRange: "Sept 2022 – Dec 2022",
+    dateRange: "Sept 2022 - Dec 2022",
     description:
       "Implemented new features with 100% unit-test coverage and refactored legacy code to reduce tech-debt.",
   },
   {
     title: "Full Stack Developer",
     company: "19Labs",
-    dateRange: "Jan 2022 – May 2022",
+    dateRange: "Jan 2022 - May 2022",
     description:
       "Delivered 15 features and resolved 30 issues on the GALE platform using Java, Node.js, and SQL.",
   },
   {
     title: "Junior Technical Analyst",
     company: "Highway Three Solutions",
-    dateRange: "May 2021 – Aug 2021",
+    dateRange: "May 2021 - Aug 2021",
     description:
       "Led 10 Atlassian cloud migrations and authored 11 technical blog posts.",
   },
@@ -69,7 +76,7 @@ export function WorkTimeline() {
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-     <Box
+    <Box
       id="work"
       component="section"
       sx={{
@@ -77,8 +84,8 @@ export function WorkTimeline() {
         mt: { xs: 12, md: 12 },
         py: { xs: 4, md: 8 },
         bgcolor: (t) => t.palette.primary.main + "10",
-      // on mobile we need a bigger offset, to clear both AppBar any toolbar
-      scrollMarginTop: { xs: "55px", md: "64px" },
+        // on mobile we need a bigger offset, to clear both AppBar any toolbar
+        scrollMarginTop: { xs: "55px", md: "64px" },
       }}
     >
       <Container maxWidth="lg">
