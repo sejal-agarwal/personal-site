@@ -7,6 +7,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { WorkTimeline } from "./components/WorkTimeline";
 
 import womanProgrammer from "../../public/womanProgrammer.svg";
 
@@ -73,6 +74,7 @@ export default function About() {
             </Box>
           </Box>
         </Container>
+        <WorkTimeline />
       </Box>
   );
 }
