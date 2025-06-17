@@ -28,34 +28,39 @@ interface Experience {
 
 const EXPERIENCES: Experience[] = [
   {
-    title:       "Software Engineer Co-op",
-    company:     "Outschool",
-    dateRange:   "Sept 2024 – Dec 2024",
-    description: "Led A/B tests and built analytics dashboards to drive a 20% lift in sign-ups.",
+    title: "Software Engineer Co-op",
+    company: "Outschool",
+    dateRange: "Sept 2024 – Dec 2024",
+    description:
+      "Led A/B tests and built analytics dashboards to drive a 20% lift in sign-ups.",
   },
   {
-    title:       "Software Engineer Co-op",
-    company:     "Open Ocean Robotics",
-    dateRange:   "May 2023 – Aug 2023",
-    description: "Migrated 60k LOC from JS to TS, boosted test coverage to 85% and shipped a live-stream carousel feature.",
+    title: "Software Engineer Co-op",
+    company: "Open Ocean Robotics",
+    dateRange: "May 2023 – Aug 2023",
+    description:
+      "Migrated 60k LOC from JS to TS, boosted test coverage to 85% and shipped a live-stream carousel feature.",
   },
   {
-    title:       "Software Engineer Intern",
-    company:     "Respondent",
-    dateRange:   "Sept 2022 – Dec 2022",
-    description: "Implemented new features with 100% unit-test coverage and refactored legacy code to reduce tech-debt.",
+    title: "Software Engineer Intern",
+    company: "Respondent",
+    dateRange: "Sept 2022 – Dec 2022",
+    description:
+      "Implemented new features with 100% unit-test coverage and refactored legacy code to reduce tech-debt.",
   },
   {
-    title:       "Full Stack Developer",
-    company:     "19Labs",
-    dateRange:   "Jan 2022 – May 2022",
-    description: "Delivered 15 features and resolved 30 issues on the GALE platform using Java, Node.js, and SQL.",
+    title: "Full Stack Developer",
+    company: "19Labs",
+    dateRange: "Jan 2022 – May 2022",
+    description:
+      "Delivered 15 features and resolved 30 issues on the GALE platform using Java, Node.js, and SQL.",
   },
   {
-    title:       "Junior Technical Analyst",
-    company:     "Highway Three Solutions",
-    dateRange:   "May 2021 – Aug 2021",
-    description: "Led 10 Atlassian cloud migrations and authored 11 technical blog posts.",
+    title: "Junior Technical Analyst",
+    company: "Highway Three Solutions",
+    dateRange: "May 2021 – Aug 2021",
+    description:
+      "Led 10 Atlassian cloud migrations and authored 11 technical blog posts.",
   },
 ];
 
@@ -67,7 +72,11 @@ export function WorkTimeline() {
     <Box
       id="work"
       component="section"
-      sx={{ py: { xs: 4, md: 8 }, bgcolor: "background.paper" }}
+      sx={{
+        mt: { xs: 6, md: 12 },
+        py: { xs: 4, md: 8 },
+        bgcolor: (theme) => theme.palette.primary.main + "10",
+      }}
     >
       <Container maxWidth="lg">
         <Typography
@@ -105,18 +114,17 @@ export function WorkTimeline() {
                     ...(isLeft ? { textAlign: "right" } : {}),
                   }}
                 >
-
                   <Typography variant="h6" color="primary" gutterBottom>
                     {exp.company}
                   </Typography>
 
-                    <Typography
-    variant="subtitle2"
-    color="text.primary"
-    sx={{ fontWeight: 500, mb: 1 }}
-  >
-    Software Engineer Co-op | {exp.dateRange}
-  </Typography>
+                  <Typography
+                    variant="subtitle2"
+                    color="text.primary"
+                    sx={{ fontWeight: 500, mb: 1 }}
+                  >
+                    Software Engineer Co-op | {exp.dateRange}
+                  </Typography>
 
                   <Typography>{exp.description}</Typography>
                 </TimelineContent>

@@ -74,6 +74,7 @@ export default function About() {
             </Box>
           </Box>
         </Container>
+        {/* <Divider sx={{ my: { xs: 6, md: 10 } }} /> */}
         <WorkTimeline />
       </Box>
   );
