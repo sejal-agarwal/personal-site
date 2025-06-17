@@ -69,13 +69,16 @@ export function WorkTimeline() {
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
-    <Box
+     <Box
       id="work"
       component="section"
       sx={{
-        mt: { xs: 6, md: 12 },
+        // push the grey band down if you like...
+        mt: { xs: 12, md: 12 },
         py: { xs: 4, md: 8 },
-        bgcolor: (theme) => theme.palette.primary.main + "10",
+        bgcolor: (t) => t.palette.primary.main + "10",
+      // on mobile we need a bigger offset, to clear both AppBar any toolbar
+      scrollMarginTop: { xs: "55px", md: "64px" },
       }}
     >
       <Container maxWidth="lg">
