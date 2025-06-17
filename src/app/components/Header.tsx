@@ -95,8 +95,6 @@ export default function Header() {
               onChange={handleChange}
               variant="standard"
               centered
-              textColor="inherit"
-              indicatorColor="primary"
               sx={{
                 "& .MuiTabs-flexContainer": {
                   justifyContent: "center",
@@ -107,10 +105,13 @@ export default function Header() {
                   textTransform: "none",
                   fontFamily: "Poppins",
                   fontWeight: 500,
-                  color: "text.primary",
+                  color: (theme) => theme.palette.text.primary,
                   "&.Mui-selected": {
-                    color: "primary.main",
+                    color: (theme) => theme.palette.primary.main,
                   },
+                },
+                "& .MuiTabs-indicator": {
+                  backgroundColor: (theme) => theme.palette.primary.main,
                 },
               }}
             >
