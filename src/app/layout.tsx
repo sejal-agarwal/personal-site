@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  title: "Sejal Agarwal - Software Engineer",
+  title: "Sejal Agarwal",
   description: "Personal site of Sejal Agarwal",
 };
 
