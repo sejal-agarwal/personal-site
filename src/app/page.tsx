@@ -15,8 +15,8 @@ export default function About() {
         component="main"
         sx={{
           bgcolor: "background.default",
-          minHeight: "100vh",
-          py: { xs: 4, md: 8 },
+          minHeight: { xs: "auto", md: "100vh" },
+          py: { xs: 2, md: 8 },
         }}
       >
         <Container maxWidth="lg">
@@ -25,14 +25,18 @@ export default function About() {
               display: "flex",
               flexDirection: { xs: "column-reverse", md: "row" },
               alignItems: "center",
-              gap: { xs: 4, md: 8 },
+              gap: { xs: 2, md: 8 },
             }}
           >
             <Box sx={{ flex: 1 }}>
               <Typography variant="h1" color="primary" gutterBottom>
                 Hi there, I'm Sejal!
               </Typography>
-              <Typography variant="body1" color="text.primary" paragraph>
+              <Typography
+                variant="body1"
+                color="text.primary"
+                sx={{ mb: { xs: -4, md: 3 } }}
+              >
                 I recently graduated with a degree in Software Engineering from
                 the University of Victoria and will be pursuing my Master's in
                 Computer Science at the University of Waterloo. With leadership
