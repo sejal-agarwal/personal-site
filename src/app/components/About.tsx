@@ -26,7 +26,7 @@ export default function About() {
             }}
           >
             <Box sx={{ flex: 1 }}>
-              <Typography variant="h1" color="primary">
+              <Typography variant="h1" color="primary" gutterBottom>
                 Hi there, I'm Sejal!
               </Typography>
               <Typography variant="body1" color="text.primary" paragraph>
