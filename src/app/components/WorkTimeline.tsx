@@ -80,8 +80,9 @@ export function WorkTimeline() {
       id="work"
       component="section"
       sx={{
-        mt: { xs: 12, md: 12 },
-        py: { xs: 6, md: 8 },
+        mt: { xs: 6, md: 8 },
+        pt: { xs: 6, md: 8 },
+        pb: { xs: 6, md: 8 },
         bgcolor: (t) => t.palette.primary.main + "10",
         scrollMarginTop: { xs: "55px", md: "64px" },
       }}
@@ -127,12 +128,13 @@ export function WorkTimeline() {
                   <Typography
                     variant="subtitle2"
                     color="text.primary"
-                    sx={{ fontWeight: 500, mb: 1 }}
+                    sx={{ fontWeight: 500 }}
+                    gutterBottom
                   >
                     Software Engineer Co-op | {exp.dateRange}
                   </Typography>
 
-                  <Typography>{exp.description}</Typography>
+                  <Typography paragraph>{exp.description}</Typography>
                 </TimelineContent>
               </TimelineItem>
             );

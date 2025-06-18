@@ -70,13 +70,13 @@ export function Awards() {
       id="awards"
       component="section"
       sx={{
-        mt: { xs: 2, md: 2 },
-        py: { xs: 4, md: 6 },
+        pt: { xs: 6, md: 8 },
+        pb: { xs: 6, md: 8 },
         scrollMarginTop: { xs: "55px", md: "64px" },
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h4" gutterBottom sx={{ fontWeight: 700 }}>
+        <Typography variant="h4" sx={{ fontWeight: 700 }}>
           Awards
         </Typography>
 
@@ -113,13 +113,16 @@ export function Awards() {
                 <Typography
                   variant="subtitle2"
                   color="text.primary"
-                  sx={{ fontWeight: 500, mb: 1 }}
+                  sx={{ fontWeight: 500 }}
+                  gutterBottom
                 >
                   {award.amount
                     ? `${award.amount} | ${award.year}`
                     : award.year}
                 </Typography>
-                <Typography variant="body1">{award.description}</Typography>
+                <Typography variant="body1" paragraph>
+                  {award.description}
+                </Typography>
               </Box>
             </Paper>
           ))}
