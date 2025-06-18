@@ -5,7 +5,6 @@ import {
   Box,
   Container,
   Typography,
-  Button,
 } from "@mui/material";
 import { WorkTimeline } from "./components/WorkTimeline";
 
@@ -42,20 +41,6 @@ export default function About() {
                 I thrive on crafting creative and beautiful solutions through
                 code.
               </Typography>
-               <Button
-               variant="contained"
-               color="secondary"
-               size="large"
-               sx={{
-                 textTransform: "none",
-                 fontWeight: 600,
-                 display: "block",
-                 mx: { xs: "auto", md: 0 },        
-                 mt: 2,
-               }}
-             >
-               Contact Me!
-             </Button>
             </Box>
 
             <Box
@@ -74,7 +59,6 @@ export default function About() {
             </Box>
           </Box>
         </Container>
-        {/* <Divider sx={{ my: { xs: 6, md: 10 } }} /> */}
         <WorkTimeline />
       </Box>
   );
