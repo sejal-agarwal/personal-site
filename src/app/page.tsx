@@ -1,18 +1,16 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import {
-  Box,
-  Container,
-  Typography,
-} from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { WorkTimeline } from "./components/WorkTimeline";
 import { Awards } from "./components/Awards";
 
 import womanProgrammer from "../../public/womanProgrammer.svg";
+import { Contact } from "./components/Contact";
 
 export default function About() {
   return (
+    <>
       <Box
         component="main"
         sx={{
@@ -63,5 +61,7 @@ export default function About() {
         <WorkTimeline />
         <Awards />
       </Box>
+      <Contact />
+    </>
   );
 }

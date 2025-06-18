@@ -26,6 +26,7 @@ export default function Header() {
     const scrollY = window.scrollY + OFFSET;
     let newIndex = 0;
 
+    // pick the highest section whose top we've passed
     for (let i = 0; i < NAV_ITEMS.length; i++) {
       const el = document.querySelector(NAV_ITEMS[i].href);
       if (el) {
@@ -36,15 +37,20 @@ export default function Header() {
       }
     }
 
+    const scrolledToBottom =
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2;
+    if (scrolledToBottom) {
+      newIndex = NAV_ITEMS.length - 1;
+    }
+
     if (newIndex !== current) {
       setCurrent(newIndex);
     }
   }, [current]);
 
   React.useEffect(() => {
-    // on mount and on scroll, sync the tab index
     window.addEventListener("scroll", syncTabWithScroll, { passive: true });
-    // also run once in case we start mid-page
     syncTabWithScroll();
     return () => window.removeEventListener("scroll", syncTabWithScroll);
   }, [syncTabWithScroll]);

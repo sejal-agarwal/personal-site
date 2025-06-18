@@ -80,11 +80,9 @@ export function WorkTimeline() {
       id="work"
       component="section"
       sx={{
-        // push the grey band down if you like...
         mt: { xs: 12, md: 12 },
-        py: { xs: 4, md: 8 },
+        py: { xs: 6, md: 8 },
         bgcolor: (t) => t.palette.primary.main + "10",
-        // on mobile we need a bigger offset, to clear both AppBar any toolbar
         scrollMarginTop: { xs: "55px", md: "64px" },
       }}
     >
@@ -106,11 +104,9 @@ export function WorkTimeline() {
             const isLeft = !isSmall && i % 2 === 1;
             return (
               <TimelineItem key={i}>
-                {/* keep the opposite column empty so our line stays centered */}
                 {!isSmall && <TimelineOppositeContent />}
 
                 <TimelineSeparator>
-                  {/* only connector below */}
                   <TimelineDot color="primary" sx={{ zIndex: 1 }}>
                     <WorkIcon fontSize="small" />
                   </TimelineDot>

@@ -1,13 +1,7 @@
 "use client";
 
 import * as React from "react";
- import {
-   Box,
-   Container,
-   Typography,
-   Paper,
-   useTheme,
- } from "@mui/material";
+import { Box, Container, Typography, Paper, useTheme } from "@mui/material";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 interface Award {
@@ -76,12 +70,14 @@ export function Awards() {
       id="awards"
       component="section"
       sx={{
-        py: { xs: 8, md: 12 },
+        mt: { xs: 2, md: 2 },
+        py: { xs: 4, md: 6 },
+        scrollMarginTop: { xs: "55px", md: "64px" },
       }}
     >
       <Container maxWidth="lg">
         <Typography variant="h4" gutterBottom sx={{ fontWeight: 700 }}>
-          Awards & Scholarships
+          Awards
         </Typography>
 
         <Box
@@ -111,21 +107,19 @@ export function Awards() {
               />
 
               <Box>
-                <Typography variant="subtitle1" fontWeight={500}>
+                <Typography variant="h6" color="primary" gutterBottom>
                   {award.name}
                 </Typography>
                 <Typography
-                  variant="body2"
-                  color="text.secondary"
-                  sx={{ mb: 0.5 }}
+                  variant="subtitle2"
+                  color="text.primary"
+                  sx={{ fontWeight: 500, mb: 1 }}
                 >
                   {award.amount
                     ? `${award.amount} | ${award.year}`
                     : award.year}
                 </Typography>
-                <Typography variant="body2">
-                  {award.description}
-                </Typography>
+                <Typography variant="body1">{award.description}</Typography>
               </Box>
             </Paper>
           ))}
