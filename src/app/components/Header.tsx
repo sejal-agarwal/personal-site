@@ -52,14 +52,10 @@ export default function Header() {
   React.useEffect(() => {
     window.addEventListener("scroll", syncTabWithScroll, { passive: true });
     syncTabWithScroll();
-    return () =>
-      window.removeEventListener("scroll", syncTabWithScroll);
+    return () => window.removeEventListener("scroll", syncTabWithScroll);
   }, [syncTabWithScroll]);
 
-  const handleChange = (
-    _event: React.SyntheticEvent,
-    value: number
-  ) => {
+  const handleChange = (_event: React.SyntheticEvent, value: number) => {
     setCurrent(value);
     const href = NAV_ITEMS[value].href;
     if (href === "#about") {
@@ -122,8 +118,7 @@ export default function Header() {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   } else {
                     const target = document.querySelector(item.href);
-                    if (target)
-                      target.scrollIntoView({ behavior: "smooth" });
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
                   }
                   window.history.pushState(null, "", item.href);
                 }}
