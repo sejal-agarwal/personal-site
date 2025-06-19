@@ -85,7 +85,7 @@ export function Awards() {
           sx={{
             display: "grid",
             gridTemplateColumns: { xs: "1fr", md: "1fr 1fr" },
-            gap: 4,
+            gap: 2,
           }}
         >
           {AWARDS.map((award, i) => (
@@ -121,7 +121,7 @@ export function Awards() {
                     ? `${award.amount} | ${award.year}`
                     : award.year}
                 </Typography>
-                <Typography variant="body1" paragraph>
+                <Typography variant="body1" sx={{ mb: 1 }}>
                   {award.description}
                 </Typography>
               </Box>
