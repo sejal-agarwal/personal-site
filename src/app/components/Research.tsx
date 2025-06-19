@@ -1,7 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { Box, Container, Typography, useTheme, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Container,
+  Typography,
+  useTheme,
+  useMediaQuery,
+} from "@mui/material";
 import Image from "next/image";
 import researchImage from "../../../public/researcher.svg";
 
@@ -15,18 +21,19 @@ export function Research() {
       className="fade-in"
       component="section"
       sx={{
-        py: { xs: 4, md: 8 },
-        bgcolor: theme.palette.primary.main,         // solid accent purple
+        pt: { xs: 6, md: 8 },
+        pb: { xs: 6, md: 8 },
+        bgcolor: theme.palette.primary.main,
         scrollMarginTop: { xs: "55px", md: "64px" },
       }}
     >
       <Container maxWidth="lg">
         <Box
           sx={{
-            display:        "flex",
-            flexDirection:  isSmall ? "column" : "row",
-            alignItems:     "center",
-            gap:            4,
+            display: "flex",
+            flexDirection: isSmall ? "column" : "row",
+            alignItems: "center",
+            gap: 4,
           }}
         >
           {/* Left: illustration */}
@@ -46,21 +53,22 @@ export function Research() {
               variant="h4"
               component="h2"
               gutterBottom
-              sx={{ 
-                fontWeight: 700, 
-                color:      theme.palette.grey[100]    // light grey heading
+              sx={{
+                fontWeight: 700,
+                color: theme.palette.grey[100], // light grey heading
               }}
             >
               Research Interests
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: theme.palette.common.white }}  // white body text
+              sx={{ color: theme.palette.common.white }} // white body text
             >
-              I’m passionate about Human–Computer Interaction and educational technology:
-              designing data-driven interfaces that empower learners, running user studies
-              on engagement metrics, and building adaptive dashboards that surface the most
-              relevant insights in real time.
+              I’m passionate about Human–Computer Interaction and educational
+              technology: designing data-driven interfaces that empower
+              learners, running user studies on engagement metrics, and building
+              adaptive dashboards that surface the most relevant insights in
+              real time.
             </Typography>
           </Box>
         </Box>

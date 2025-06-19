@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import Image from "next/image";
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 
 import womanProgrammer from "../../../public/womanProgrammer.svg";
 
@@ -9,7 +9,7 @@ export default function About() {
   return (
     <>
       <Box
-      className="fade-in"
+        className="fade-in"
         component="section"
         id="about"
         sx={{
@@ -39,8 +39,30 @@ export default function About() {
                 I thrive on crafting creative and beautiful solutions through
                 code.
               </Typography>
+              <Box
+                sx={{
+                  mt: 2,
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: { xs: "center", md: "flex-start" },
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    const el = document.getElementById("contact");
+                    if (el) el.scrollIntoView({ behavior: "smooth" });
+                    window.history.pushState(null, "", "#contact");
+                  }}
+                  sx={{
+                    fontSize: (theme) => theme.typography.body1.fontSize,
+                  }}
+                >
+                  Contact Me!
+                </Button>
+              </Box>
             </Box>
-
             <Box
               sx={{
                 flex: 1,

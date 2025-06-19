@@ -15,9 +15,9 @@ import {
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
+  { label: "Research", href: "#research" },
   { label: "Work", href: "#work" },
   { label: "Awards", href: "#awards" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export default function Header() {
