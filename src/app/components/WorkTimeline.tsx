@@ -90,6 +90,8 @@ export function WorkTimeline() {
   const dotRefs = React.useRef<Array<HTMLElement | null>>([]);
   const [barTop, setBarTop] = React.useState(0);
   const [barHeight, setBarHeight] = React.useState(0);
+  const [trackX, setTrackX] = React.useState(0);
+
   React.useEffect(() => {
     const sec = sectionRef.current;
     if (!sec) return;
@@ -100,10 +102,24 @@ export function WorkTimeline() {
       return r.top + window.scrollY - topOff + r.height / 2;
     });
     if (centers.length) {
+      const dotRadius =
+        (dotRefs.current[0]?.getBoundingClientRect().height ?? 40) / 2;
       setBarTop(centers[0]);
-      setBarHeight(centers[centers.length - 1] - centers[0]);
+      setBarHeight(centers[centers.length - 1] - centers[0] + dotRadius);
     }
   }, [isSmall]);
+
+  React.useEffect(() => {
+    const sec = sectionRef.current;
+    if (!sec) return;
+    const secLeft = sec.getBoundingClientRect().left + window.scrollX;
+    const firstDot = dotRefs.current[0];
+    if (firstDot) {
+      const r = firstDot.getBoundingClientRect();
+      const centerX = r.left + r.width / 2 - secLeft;
+      setTrackX(centerX);
+    }
+  }, [isSmall, barTop, barHeight]);
 
   const [activeDots, setActiveDots] = React.useState<boolean[]>([]);
   React.useEffect(() => {
@@ -128,6 +144,7 @@ export function WorkTimeline() {
       ref={sectionRef}
       className="fade-in"
       component="section"
+      id="work"
       sx={{
         position: "relative",
         mt: { xs: 6, md: 8 },
@@ -142,8 +159,8 @@ export function WorkTimeline() {
         sx={{
           position: "absolute",
           top: barTop,
-          left: "50%",
-          transform: "translateX(-50%)",
+          left: isSmall ? `${trackX}px` : "50%",
+          transform: isSmall ? "none" : "translateX(-50%)",
           width: 2,
           height: barHeight,
           bgcolor: theme.palette.grey[300],
@@ -157,7 +174,7 @@ export function WorkTimeline() {
         style={{
           position: "absolute",
           top: barTop,
-          left: "calc(50% - 1px)",
+          left: isSmall ? `${trackX - 1}px` : "calc(50% - 1px)",
           width: 2,
           height: barHeight,
           backgroundColor: theme.palette.primary.main,
@@ -179,7 +196,10 @@ export function WorkTimeline() {
 
         <Timeline
           position={isSmall ? "right" : "alternate"}
-          sx={{ "& .MuiTimelineConnector-root": { bgcolor: "transparent" } }}
+          sx={{
+            "& .MuiTimelineItem-root:before": { display: "none" },
+            "& .MuiTimelineConnector-root": { bgcolor: "transparent" },
+          }}
         >
           {EXPERIENCES.map((exp, i) => {
             const isLeft = !isSmall && i % 2 === 1;
@@ -201,9 +221,7 @@ export function WorkTimeline() {
                         : theme.palette.primary.main,
                     }}
                     color="inherit"
-                    sx={{
-                      zIndex: 2,
-                    }}
+                    sx={{ zIndex: 2 }}
                   >
                     <WorkIcon fontSize="small" />
                   </MotionDot>
