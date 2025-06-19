@@ -67,6 +67,7 @@ export function Awards() {
 
   return (
     <Box
+    className="fade-in"
       id="awards"
       component="section"
       sx={{

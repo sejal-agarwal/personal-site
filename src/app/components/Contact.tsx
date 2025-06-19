@@ -18,6 +18,7 @@ export function Contact() {
 
   return (
     <Box
+    className="fade-in"
       component="footer"
       id="contact"
       sx={{

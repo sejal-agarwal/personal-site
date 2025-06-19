@@ -77,6 +77,7 @@ export function WorkTimeline() {
 
   return (
     <Box
+    className="fade-in"
       id="work"
       component="section"
       sx={{

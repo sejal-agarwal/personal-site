@@ -1,6 +1,7 @@
 "use client";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import React from "react";
+import { useFadeOnScroll } from "./hooks/useFadeOnScroll";
 
 const palette = {
   background: { default: "#ffffff" },
@@ -33,5 +34,6 @@ const typography = {
 const theme = createTheme({ palette, typography });
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  useFadeOnScroll();
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 }
