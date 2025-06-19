@@ -77,7 +77,7 @@ export function Awards() {
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h4" sx={{ fontWeight: 700 }}>
+        <Typography variant="h4" sx={{ fontWeight: 700 }} gutterBottom>
           Awards
         </Typography>
 
