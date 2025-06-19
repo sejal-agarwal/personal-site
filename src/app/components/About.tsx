@@ -15,6 +15,7 @@ export default function About() {
         sx={{
           bgcolor: "background.default",
           pt: { xs: 6, md: 8 },
+          pb: { xs: 6, md: 8 },
         }}
       >
         <Container maxWidth="lg">

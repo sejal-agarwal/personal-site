@@ -147,7 +147,6 @@ export function WorkTimeline() {
       id="work"
       sx={{
         position: "relative",
-        mt: { xs: 6, md: 8 },
         pt: { xs: 6, md: 8 },
         pb: { xs: 6, md: 8 },
         bgcolor: (t) => t.palette.primary.main + "10",
