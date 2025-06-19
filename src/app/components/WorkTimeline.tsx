@@ -14,10 +14,11 @@ import {
   TimelineSeparator,
   TimelineConnector,
   TimelineContent,
-  TimelineDot,
   TimelineOppositeContent,
+  TimelineDot,
 } from "@mui/lab";
 import WorkIcon from "@mui/icons-material/Work";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 interface Experience {
   title: string;
@@ -71,16 +72,64 @@ const EXPERIENCES: Experience[] = [
   },
 ];
 
+const MotionDot = motion(TimelineDot);
+
 export function WorkTimeline() {
   const theme = useTheme();
   const isSmall = useMediaQuery(theme.breakpoints.down("md"));
 
+  const sectionRef = React.useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start center", "end center"],
+  });
+  const fillProgress = useTransform(scrollYProgress, [0, 1], [0, 1], {
+    clamp: true,
+  });
+
+  const dotRefs = React.useRef<Array<HTMLElement | null>>([]);
+  const [barTop, setBarTop] = React.useState(0);
+  const [barHeight, setBarHeight] = React.useState(0);
+  React.useEffect(() => {
+    const sec = sectionRef.current;
+    if (!sec) return;
+    const topOff = sec.getBoundingClientRect().top + window.scrollY;
+    const centers = dotRefs.current.map((el) => {
+      if (!el) return 0;
+      const r = el.getBoundingClientRect();
+      return r.top + window.scrollY - topOff + r.height / 2;
+    });
+    if (centers.length) {
+      setBarTop(centers[0]);
+      setBarHeight(centers[centers.length - 1] - centers[0]);
+    }
+  }, [isSmall]);
+
+  const [activeDots, setActiveDots] = React.useState<boolean[]>([]);
+  React.useEffect(() => {
+    return fillProgress.onChange((p) => {
+      const fh = barHeight * p;
+      setActiveDots(
+        dotRefs.current.map((el) => {
+          if (!el) return false;
+          const sec = sectionRef.current!;
+          const containerTop = sec.getBoundingClientRect().top + window.scrollY;
+          const r = el.getBoundingClientRect();
+          const centerY =
+            r.top + window.scrollY - containerTop + r.height / 2 - barTop;
+          return centerY <= fh;
+        })
+      );
+    });
+  }, [fillProgress, barTop, barHeight]);
+
   return (
     <Box
-    className="fade-in"
-      id="work"
+      ref={sectionRef}
+      className="fade-in"
       component="section"
       sx={{
+        position: "relative",
         mt: { xs: 6, md: 8 },
         pt: { xs: 6, md: 8 },
         pb: { xs: 6, md: 8 },
@@ -88,7 +137,37 @@ export function WorkTimeline() {
         scrollMarginTop: { xs: "55px", md: "64px" },
       }}
     >
-      <Container maxWidth="lg">
+      {/* grey track */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: barTop,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: 2,
+          height: barHeight,
+          bgcolor: theme.palette.grey[300],
+          zIndex: 0,
+        }}
+      />
+
+      {/* purple fill */}
+      <motion.div
+        initial={{ scaleY: 0 }}
+        style={{
+          position: "absolute",
+          top: barTop,
+          left: "calc(50% - 1px)",
+          width: 2,
+          height: barHeight,
+          backgroundColor: theme.palette.primary.main,
+          transformOrigin: "top",
+          scaleY: fillProgress,
+          zIndex: 1,
+        }}
+      />
+
+      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
         <Typography
           variant="h4"
           component="h2"
@@ -100,7 +179,7 @@ export function WorkTimeline() {
 
         <Timeline
           position={isSmall ? "right" : "alternate"}
-          sx={{ "& .MuiTimelineItem-root:before": { flex: 0, padding: 0 } }}
+          sx={{ "& .MuiTimelineConnector-root": { bgcolor: "transparent" } }}
         >
           {EXPERIENCES.map((exp, i) => {
             const isLeft = !isSmall && i % 2 === 1;
@@ -109,9 +188,26 @@ export function WorkTimeline() {
                 {!isSmall && <TimelineOppositeContent />}
 
                 <TimelineSeparator>
-                  <TimelineDot color="primary" sx={{ zIndex: 1 }}>
+                  <MotionDot
+                    ref={(el) => {
+                      if (el) dotRefs.current[i] = el as HTMLElement;
+                    }}
+                    animate={{
+                      backgroundColor: activeDots[i]
+                        ? theme.palette.primary.main
+                        : theme.palette.background.paper,
+                      color: activeDots[i]
+                        ? theme.palette.background.paper
+                        : theme.palette.primary.main,
+                    }}
+                    color="inherit"
+                    sx={{
+                      zIndex: 2,
+                    }}
+                  >
                     <WorkIcon fontSize="small" />
-                  </TimelineDot>
+                  </MotionDot>
+
                   {i < EXPERIENCES.length - 1 && <TimelineConnector />}
                 </TimelineSeparator>
 
@@ -119,22 +215,20 @@ export function WorkTimeline() {
                   sx={{
                     py: "12px",
                     px: 2,
-                    ...(isLeft ? { textAlign: "right" } : {}),
+                    ...(isLeft && { textAlign: "right" }),
                   }}
                 >
                   <Typography variant="h6" color="primary" gutterBottom>
                     {exp.company}
                   </Typography>
-
                   <Typography
                     variant="subtitle2"
                     color="text.primary"
                     sx={{ fontWeight: 500 }}
                     gutterBottom
                   >
-                    Software Engineer Co-op | {exp.dateRange}
+                    {exp.title} | {exp.dateRange}
                   </Typography>
-
                   <Typography paragraph>{exp.description}</Typography>
                 </TimelineContent>
               </TimelineItem>
