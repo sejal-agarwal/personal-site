@@ -1,4 +1,5 @@
 "use client";
+
 import * as React from "react";
 import NextLink from "next/link";
 import {
@@ -26,7 +27,6 @@ export default function Header() {
     const scrollY = window.scrollY + OFFSET;
     let newIndex = 0;
 
-    // pick the highest section whose top we've passed
     for (let i = 0; i < NAV_ITEMS.length; i++) {
       const el = document.querySelector(NAV_ITEMS[i].href);
       if (el) {
@@ -52,17 +52,23 @@ export default function Header() {
   React.useEffect(() => {
     window.addEventListener("scroll", syncTabWithScroll, { passive: true });
     syncTabWithScroll();
-    return () => window.removeEventListener("scroll", syncTabWithScroll);
+    return () =>
+      window.removeEventListener("scroll", syncTabWithScroll);
   }, [syncTabWithScroll]);
 
-  const handleChange = (evt: React.SyntheticEvent, value: number) => {
+  const handleChange = (
+    _event: React.SyntheticEvent,
+    value: number
+  ) => {
     setCurrent(value);
     const href = NAV_ITEMS[value].href;
     if (href === "#about") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      document.querySelector(href)!.scrollIntoView({ behavior: "smooth" });
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: "smooth" });
     }
+    window.history.pushState(null, "", href);
   };
 
   return (
@@ -73,6 +79,11 @@ export default function Header() {
             variant="h6"
             component={NextLink}
             href="#about"
+            onClick={(e) => {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              window.history.pushState(null, "", "#about");
+            }}
             sx={{
               display: { xs: "none", sm: "block" },
               textDecoration: "none",
@@ -83,7 +94,6 @@ export default function Header() {
           >
             Sejal Agarwal
           </Typography>
-
           <Box
             sx={{
               flexGrow: 1,
@@ -92,18 +102,10 @@ export default function Header() {
               mr: 4,
             }}
           >
-            {/* ——— Desktop tabs ——— */}
+            {/* Desktop tabs */}
             {NAV_ITEMS.map((item) => (
               <Button
                 key={item.href}
-                component={NextLink}
-                href={item.href}
-                onClick={(e) => {
-                  if (item.href === "#about") {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }
-                }}
                 variant="text"
                 color="inherit"
                 sx={{
@@ -114,13 +116,24 @@ export default function Header() {
                   fontWeight: 500,
                   color: "text.primary",
                 }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  if (item.href === "#about") {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    const target = document.querySelector(item.href);
+                    if (target)
+                      target.scrollIntoView({ behavior: "smooth" });
+                  }
+                  window.history.pushState(null, "", item.href);
+                }}
               >
                 {item.label}
               </Button>
             ))}
           </Box>
 
-          {/* ——— Mobile tabs ——— */}
+          {/* Mobile tabs */}
           <Box
             sx={{
               flexGrow: 1,
