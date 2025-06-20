@@ -1,5 +1,9 @@
 name: Build & Deploy to GitHub Pages
 
+# grant write access so the deploy step can push to gh-pages
+permissions:
+  contents: write
+
 on:
   push:
     branches: [ main ]
@@ -8,8 +12,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout source
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # ensures full git history for gh-pages pushes
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -18,11 +23,12 @@ jobs:
 
       - name: Install and build
         run: |
-          npm ci               # or yarn install
-          npm run build        # adjust to your build script
+          npm ci
+          npm run build
 
       - name: Deploy to gh-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build   # or ./public, depending on your project
+          publish_dir: ./build
+          # (optional) target_branch: gh-pages  # default is gh-pages
