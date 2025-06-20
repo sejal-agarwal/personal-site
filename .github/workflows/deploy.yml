@@ -27,7 +27,7 @@ jobs:
           npm run build    # this will do your static export via output: 'export'
 
       - name: Upload artifact for Pages
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out      # should be your export output directory
 
