@@ -7,6 +7,12 @@ import { Providers } from "./providers";
 export const metadata: Metadata = {
   title: "Sejal Agarwal",
   description: "Personal site of Sejal Agarwal",
+  icons: {
+    icon: "data:image/svg+xml;utf8," +
+      '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">' +
+        '<text x="0" y="108" font-size="108">👩🏽‍💻</text>' +
+      "</svg>"
+  }
 };
 
 const poppins = Poppins({
