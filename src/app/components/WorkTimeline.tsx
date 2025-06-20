@@ -158,7 +158,7 @@ export function WorkTimeline() {
         sx={{
           position: "absolute",
           top: barTop,
-          left: isSmall ? `${trackX}px` : "50%",
+          left: isSmall ? `${trackX - 1}px` : "50%",
           transform: isSmall ? "none" : "translateX(-50%)",
           width: 2,
           height: barHeight,
@@ -173,7 +173,7 @@ export function WorkTimeline() {
         style={{
           position: "absolute",
           top: barTop,
-          left: isSmall ? `${trackX}px` : "calc(50% - 1px)",
+          left: isSmall ? `${trackX - 1}px` : "calc(50% - 1px)",
           width: 2,
           height: barHeight,
           backgroundColor: theme.palette.primary.main,
