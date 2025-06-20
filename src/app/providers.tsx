@@ -7,15 +7,15 @@ import { useFadeOnScroll } from "./hooks/useFadeOnScroll";
 const palette = {
   mode: "light" as const,
   background: { default: "#ffffff" },
-  primary:    { main: "#5454c4" },
-  secondary:  { main: "#b4b4fc" },
-  text:       { primary: "#333333" },
+  primary: { main: "#5454c4" },
+  secondary: { main: "#b4b4fc" },
+  text: { primary: "#333333" },
 };
 
 const typography = {
-  fontFamily: ["Poppins","sans-serif"].join(","),
+  fontFamily: ["Poppins", "sans-serif"].join(","),
   h1: {
-    fontFamily: ["Poppins","sans-serif"].join(","),
+    fontFamily: ["Poppins", "sans-serif"].join(","),
     fontWeight: 700,
     lineHeight: 1.2,
     fontSize: "2.25rem",
@@ -37,5 +37,10 @@ const theme = createTheme({ palette, typography });
 
 export function Providers({ children }: { children: React.ReactNode }) {
   useFadeOnScroll();
-  return <ThemeProvider theme={theme}><CssBaseline />{children}</ThemeProvider>;
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
 }
