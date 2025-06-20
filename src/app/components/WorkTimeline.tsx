@@ -47,7 +47,7 @@ const EXPERIENCES: Experience[] = [
     company: "Open Ocean Robotics",
     dateRange: "May 2023 - Aug 2023",
     description:
-      "Migrated 60,000 LOC from JavaScript to TypeScript to improve code robustness, raised test coverage to 85%, and shipped a live-stream image carousel for USVs, reducing operational costs.",
+      "Migrated 60,000+ lines of code from JavaScript to TypeScript to improve code robustness and shipped a live-stream image carousel for Unmanned Surface Vehicles, reducing operational costs.",
   },
   {
     title: "Software Engineer Intern",
@@ -61,7 +61,7 @@ const EXPERIENCES: Experience[] = [
     company: "19Labs",
     dateRange: "Jan 2022 - May 2022",
     description:
-      "Delivered 15 new features and resolved 30 issues on the GALE telehealth platform using Java, Node.js, Kotlin, and SQL, enabling seamless remote patient care.",
+      "Delivered 15 new features and resolved 30 issues on a telehealth platform using Java, Node.js, Kotlin, and SQL, enabling seamless remote patient care.",
   },
   {
     title: "Junior Technical Analyst (Co-op)",

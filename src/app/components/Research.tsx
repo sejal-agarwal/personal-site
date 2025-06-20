@@ -65,7 +65,7 @@ export function Research() {
               sx={{ color: theme.palette.common.white }} // white body text
             >
               My research interests lie at the intersection of human-computer 
-              interaction, artificial intelligence, and educational technology. 
+              interaction (HCI), artificial intelligence, and educational technology. 
               I'm passionate about designing AI-driven learning environments that 
               adapt in real time to students' needs, improving engagement and retention. 
               Ultimately, I aim to explore how novel HCI paradigms and machine-learning 
