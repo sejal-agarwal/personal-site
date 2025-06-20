@@ -36,7 +36,6 @@ export function Research() {
             gap: 4,
           }}
         >
-          {/* Left: illustration */}
           <Box sx={{ flex: "0 0 300px", textAlign: "center" }}>
             <Image
               src={researchImage}
@@ -46,8 +45,6 @@ export function Research() {
               style={{ maxWidth: "100%", height: "auto" }}
             />
           </Box>
-
-          {/* Right: your blurb */}
           <Box sx={{ flex: 1 }}>
             <Typography
               variant="h4"
@@ -55,14 +52,14 @@ export function Research() {
               gutterBottom
               sx={{
                 fontWeight: 700,
-                color: theme.palette.grey[100], // light grey heading
+                color: theme.palette.grey[100],
               }}
             >
               Research Interests
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: theme.palette.common.white }} // white body text
+              sx={{ color: theme.palette.common.white }}
             >
               {`My research interests lie at the intersection of human-computer 
               interaction (HCI), artificial intelligence, and educational technology. 

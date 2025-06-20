@@ -16,49 +16,57 @@ const AWARDS: Award[] = [
     name: "Bit Quill Technologies Scholarship for Women",
     amount: "$806",
     year: "2023",
-    description: "Awarded to women in UVic's Software Engineering programs for academic excellence and leadership.",
+    description:
+      "Awarded to women in UVic's Software Engineering programs for academic excellence and leadership.",
   },
   {
     name: "Mastercard Award in Cyber Security",
     amount: "$15,000",
     year: "2022",
-    description: "Honors UVic students who excel in cybersecurity research and coursework.",
+    description:
+      "Honors UVic students who excel in cybersecurity research and coursework.",
   },
   {
     name: "Maurice William Summerhayes Memorial Scholarship",
     amount: "$40,000",
     year: "2020",
-    description: "Given to incoming UVic engineering students with outstanding academic records.",
+    description:
+      "Given to incoming UVic engineering students with outstanding academic records.",
   },
   {
     name: "BC Achievement Scholarship",
     amount: "$1,250",
     year: "2020",
-    description: "Provincial scholarship awarded to top BC high-school graduates based on their grades.",
+    description:
+      "Provincial scholarship awarded to top BC high-school graduates based on their grades.",
   },
   {
     name: "Donald & Evelyn Munro Scholarships",
     amount: "$1,250",
     year: "2020",
-    description: "Entrance scholarship for Victoria-area students entering UVic, based on academic merit.",
+    description:
+      "Entrance scholarship for Victoria-area students entering UVic, based on academic merit.",
   },
   {
     name: "Pacific Leaders Scholarship for Public Servants",
     amount: "$1,250",
     year: "2020",
-    description: "Awarded to children of BC public servants for strong academic achievement and service commitment.",
+    description:
+      "Awarded to children of BC public servants for strong academic achievement and service commitment.",
   },
   {
     name: "District Authority Award",
     amount: "$1,250",
     year: "2020",
-    description: "Provincial scholarship recognizing Grade 12 graduates for excellence in a chosen field.",
+    description:
+      "Provincial scholarship recognizing Grade 12 graduates for excellence in a chosen field.",
   },
   {
     name: "Victoria's Principal & Vice-Principal's Association Scholarship",
     amount: "$500",
     year: "2019",
-    description: "Presented to Victoria public-school graduates for academic excellence and leadership.",
+    description:
+      "Presented to Victoria public-school graduates for academic excellence and leadership.",
   },
 ];
 
@@ -67,7 +75,7 @@ export function Awards() {
 
   return (
     <Box
-    className="fade-in"
+      className="fade-in"
       id="awards"
       component="section"
       sx={{
