@@ -33,42 +33,42 @@ const EXPERIENCES: Experience[] = [
     company: "Outschool",
     dateRange: "Sept 2024 - Dec 2024",
     description:
-      "Led A/B tests and built analytics dashboards to drive a 20% lift in sign-ups.",
+      "Designed and ran A/B tests on core onboarding flows and built interactive analytics dashboards, driving a 20% lift in new buyer engagement and sign-ups.",
   },
   {
     title: "Software Engineer Co-op",
     company: "Outschool",
     dateRange: "Jan 2024 - Apr 2024",
     description:
-      "Led A/B tests and built analytics dashboards to drive a 20% lift in sign-ups.",
+      "Partnered with product and data teams to analyze experiment results, optimize UI/UX, and deliver data-driven recommendations.",
   },
   {
     title: "Software Engineer Co-op",
     company: "Open Ocean Robotics",
     dateRange: "May 2023 - Aug 2023",
     description:
-      "Migrated 60k LOC from JS to TS, boosted test coverage to 85% and shipped a live-stream carousel feature.",
+      "Migrated 60,000 LOC from JavaScript to TypeScript to improve code robustness, raised test coverage to 85%, and shipped a live-stream image carousel for USVs, reducing operational costs.",
   },
   {
     title: "Software Engineer Intern",
     company: "Respondent",
     dateRange: "Sept 2022 - Dec 2022",
     description:
-      "Implemented new features with 100% unit-test coverage and refactored legacy code to reduce tech-debt.",
+      "Implemented five new platform features with 100% unit-test coverage and refactored 20% of legacy code, reducing technical debt and enhancing maintainability.",
   },
   {
-    title: "Full Stack Developer",
+    title: "Full Stack Developer (Co-op)",
     company: "19Labs",
     dateRange: "Jan 2022 - May 2022",
     description:
-      "Delivered 15 features and resolved 30 issues on the GALE platform using Java, Node.js, and SQL.",
+      "Delivered 15 new features and resolved 30 issues on the GALE telehealth platform using Java, Node.js, Kotlin, and SQL, enabling seamless remote patient care.",
   },
   {
-    title: "Junior Technical Analyst",
+    title: "Junior Technical Analyst (Co-op)",
     company: "Highway Three Solutions",
     dateRange: "May 2021 - Aug 2021",
     description:
-      "Led 10 Atlassian cloud migrations and authored 11 technical blog posts.",
+      "Led cloud migrations for 10 Atlassian apps and authored 11 technical blog posts, streamlining team onboarding and knowledge sharing.",
   },
 ];
 

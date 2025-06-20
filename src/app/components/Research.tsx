@@ -64,11 +64,13 @@ export function Research() {
               variant="body1"
               sx={{ color: theme.palette.common.white }} // white body text
             >
-              I’m passionate about Human–Computer Interaction and educational
-              technology: designing data-driven interfaces that empower
-              learners, running user studies on engagement metrics, and building
-              adaptive dashboards that surface the most relevant insights in
-              real time.
+              My research interests lie at the intersection of human-computer 
+              interaction, artificial intelligence, and educational technology. 
+              I'm passionate about designing AI-driven learning environments that 
+              adapt in real time to students' needs, improving engagement and retention. 
+              Ultimately, I aim to explore how novel HCI paradigms and machine-learning 
+              techniques can support more effective, inclusive, and personalized learning 
+              experiences.
             </Typography>
           </Box>
         </Box>

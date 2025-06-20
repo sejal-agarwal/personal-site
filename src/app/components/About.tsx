@@ -32,12 +32,12 @@ export default function About() {
                 Hi there, I'm Sejal!
               </Typography>
               <Typography variant="body1" color="text.primary" paragraph>
-                I recently graduated with a degree in Software Engineering from
-                the University of Victoria and will be pursuing my Master's in
-                Computer Science at the University of Waterloo. With leadership
-                experience, a love for HCI, and a passion for community service,
-                I thrive on crafting creative and beautiful solutions through
-                code.
+                I'm a software engineer and soon-to-be Master's student at the 
+                University of Waterloo in Computer Science. I recently graduated 
+                with distinction in Software Engineering from UVic, where my 
+                background in mathematics, science, and community service fueled 
+                my passion for human-computer interaction, AI, and 
+                leadership to find creative solutions through code.
               </Typography>
               <Box
                 sx={{
