@@ -1,9 +1,11 @@
 "use client";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
 import React from "react";
 import { useFadeOnScroll } from "./hooks/useFadeOnScroll";
 
 const palette = {
+  mode: "light" as const,
   background: { default: "#ffffff" },
   primary:    { main: "#5454c4" },
   secondary:  { main: "#b4b4fc" },
@@ -35,5 +37,5 @@ const theme = createTheme({ palette, typography });
 
 export function Providers({ children }: { children: React.ReactNode }) {
   useFadeOnScroll();
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <ThemeProvider theme={theme}><CssBaseline />{children}</ThemeProvider>;
 }
